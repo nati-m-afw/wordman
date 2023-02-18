@@ -21,9 +21,7 @@ const Application = () => {
     <main className="flex flex-col gap-8 mx-auto my-8 w-96">
       <ColorSwatch color={correctAnswer} />
       <GameInput
-        value={colorGuess}
-        onChange={(e) => setColorGuess(e.target.value)}
-        onSubmit={() => setHasGuessed(true)}
+        onSubmit={(_, guess) => { setColorGuess(guess); setHasGuessed(true) }}
         disabled={hasGuessed}
       />
       <GameStatus isWinner={isWinner} hasGuessed={hasGuessed} />
